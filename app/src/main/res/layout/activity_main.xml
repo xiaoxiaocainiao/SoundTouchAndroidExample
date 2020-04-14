@@ -6,13 +6,109 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:id="@+id/top_area"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_area"
+        android:orientation="horizontal"
+        android:background="#cccccc"
+        app:layout_constraintVertical_weight="1"
+
+        android:gravity="center"
+        >
+
+        <Button
+            android:id="@+id/play_btn"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="点击播放"
+            android:textSize="20dp"
+            android:background="#6666ff"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_area"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#aaaaaa"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_area"
+        app:layout_constraintVertical_weight="3"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="速度"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginVertical="30dp"
+                android:layout_marginHorizontal="20dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="音调"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginVertical="30dp"
+                android:layout_marginHorizontal="20dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="节拍"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginVertical="30dp"
+                android:layout_marginHorizontal="20dp"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
