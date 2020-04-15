@@ -27,7 +27,18 @@
             android:layout_height="100dp"
             android:text="点击播放"
             android:textSize="20dp"
-            android:background="#6666ff"/>
+            android:background="#6666ff"
+            android:layout_marginRight="25dp"/>
+
+
+        <Button
+            android:id="@+id/change_sound_btn"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="变声"
+            android:textSize="20dp"
+            android:background="#6666ff"
+            android:layout_marginLeft="25dp"/>
 
     </LinearLayout>
 
