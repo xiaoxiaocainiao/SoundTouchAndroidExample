@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 
 import net.surina.soundtouch.SoundTouch;
 
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private final String MP3_FILE_NAME = "test.mp3";
 
     private MediaPlayer mediaPlayer;
+
+    private SeekBar seekBar0, seekBar1, seekBar2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
                 playSound(xx);
             }
         });
+
+        seekBar0 = findViewById(R.id.sb0);
+        seekBar1 = findViewById(R.id.sb1);
+        seekBar2 = findViewById(R.id.sb2);
     }
 
     private void initSoundPlayer() {
@@ -96,17 +103,27 @@ public class MainActivity extends AppCompatActivity {
 
         // Sets new tempo control value. Normal tempo = 1.0, smaller values
         // represent slower tempo, larger faster tempo.
-        soundTouch.setTempo((float)1.5);
+        // soundTouch.setTempo((float)1.5);
+
+        float tempoValue = (float)(seekBar0.getProgress() / 10.0);
+        soundTouch.setTempo(tempoValue);
 
         // Sets new pitch control value. Original pitch = 1.0, smaller values
         // represent lower pitches, larger values higher pitch.
-        soundTouch.setPitchSemiTones((float)1.5);
+        // soundTouch.setPitchSemiTones((float)1.5);
+
+        float pitchValue = (float)(seekBar1.getProgress() / 10.0);
+        soundTouch.setPitchSemiTones(pitchValue);
 
         // Sets new rate control value. Normal rate = 1.0, smaller values
         // represent slower rate, larger faster rates.
-        soundTouch.setSpeed((float)1.1);
+        // soundTouch.setSpeed((float)1.1);
+
+        float speedValue = (float)(seekBar2.getProgress() / 10.0);
+        soundTouch.setSpeed(speedValue);
 
         int result = soundTouch.processFile(audioFilePath(), audioChangedFilePath());
+        Log.d("xiaoxiaocainiao", "变声参数. tempo: " + tempoValue + ", pitch: " + pitchValue + "speed: " + speedValue);
         Log.d("xiaoxiaocainiao", "变声结果(0是成功): " + result);
     }
 
